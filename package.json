@@ -1,0 +1,8 @@
+{
+  "name": "BossaBox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mayconbalves/BossaBox.git",
+  "author": "Maycon Alves <mayconmustaine@hotmail.com>",
+  "license": "MIT"
+}
