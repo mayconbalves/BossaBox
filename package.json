@@ -5,6 +5,10 @@
   "repository": "git@github.com:mayconbalves/BossaBox.git",
   "author": "Maycon Alves <mayconmustaine@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
