@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react"
 
 export default class App extends Component {
   render() {
@@ -8,6 +7,3 @@ export default class App extends Component {
     )
   }
 }
-
-const container = document.getElementById('app');
-ReactDOM.render(<App />, container);
