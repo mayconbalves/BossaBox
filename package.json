@@ -34,7 +34,23 @@
   "dependencies": {
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.1",
+    "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "brnachs": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }
