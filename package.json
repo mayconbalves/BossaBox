@@ -41,6 +41,11 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test"
+    }
+  },
   "jest": {
     "verbose": true,
     "testEnvironment": "node",
