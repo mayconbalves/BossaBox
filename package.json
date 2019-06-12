@@ -8,7 +8,9 @@
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js --fix"
   },
   "devDependencies": {
@@ -16,26 +18,31 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.4.0",
     "jest": "^24.8.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "redux-devtools": "^3.5.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.5.1"
+    "redux-mock-store": "^1.5.3",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.1",
     "react-test-renderer": "^16.8.6",
@@ -45,10 +52,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn test"
+      "pre-push": "yarn lint && yarn test:coverage"
     }
   },
   "jest": {
+    "setupFiles": ["./setupTests.js"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "verbose": true,
     "testEnvironment": "node",
     "collectCoverageFrom": [
@@ -56,10 +67,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "brnachs": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
+        "brnachs": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
       }
     }
   }
