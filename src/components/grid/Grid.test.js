@@ -1,8 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Row from './Row'
+import Grid from './Grid'
 
-describe('<Row />', () => {
+describe('<Grid />', () => {
   let props
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('<Row />', () => {
   })
 
   it('render component', () => {
-    const component = mount(<Row {...props} />)
+    const component = mount(<Grid {...props} />)
 
     expect(component.find('div')).toHaveLength(1)
   })
