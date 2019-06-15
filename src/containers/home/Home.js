@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as toolsActions from './actions'
 
+import Grid from '../../components/grid/Grid'
+
 class HomeContainer extends Component {
 
   componentDidMount() {
@@ -12,8 +14,12 @@ class HomeContainer extends Component {
     fetchTools()
   }
   render() {
+    console.log(this.props)
     return (
-      <h1>Home</h1>
+      <Grid>
+        <h1>VUTTR</h1>
+        <p>Very Useful Tools to Remember</p>
+      </Grid>
     )
   }
 }
