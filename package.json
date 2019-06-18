@@ -66,7 +66,8 @@
     "verbose": true,
     "testEnvironment": "node",
     "collectCoverageFrom": [
-      "src/*.js"
+      "src/*.js",
+      "src/**/*.js"
     ],
     "coverageThreshold": {
       "global": {
