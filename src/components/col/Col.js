@@ -2,20 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Column } from './styled'
 
-const Col = (props) => {
-  const { children, xs, md, lg } = props
-  return(
-    <Column xs={xs} md={md} lg={lg}>
-      {children}
-    </Column>
-  )
-}
+const Col = ({ children, lg, md, xs  }) => (
+  <Column lg={lg} md={md} xs={xs}>
+    {children}
+  </Column>
+)
 
 Col.prototype = {
   children: PropTypes.node.isRequired,
-  xs: PropTypes.number,
+  lg: PropTypes.number,
   md: PropTypes.number,
-  lg: PropTypes.number
+  xs: PropTypes.number
 }
 
 export default Col
