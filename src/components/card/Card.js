@@ -1,13 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import Row from '../row/Row'
 import Col from '../col/Col'
 
+const CardBody = styled.div`
+  width: 100%;
+  height: 100px;
+  border: 2px solid black;
+  margin: 15px auto;
+`
+
 const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
   const hashTags = tags || []
   return (
-    <div>
+    <CardBody>
       <Row>
         <Col>
           {title}
@@ -32,7 +40,7 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
           ))
         }
       </Row>
-    </div>
+    </CardBody>
   )
 }
 
