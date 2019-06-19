@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Row from '../row/Row'
 import Col from '../col/Col'
 
-const Card = ({ description, link, tags, title }) => {
+const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
   const hashTags = tags || []
   return (
     <div>
@@ -13,7 +13,7 @@ const Card = ({ description, link, tags, title }) => {
           {title}
         </Col>
         <Col>
-          <button>
+          <button onClick={() => handleDeleteTool(id)}>
             x remove
           </button>
         </Col>
@@ -38,6 +38,8 @@ const Card = ({ description, link, tags, title }) => {
 
 Card.propTypes = {
   description: PropTypes.string.isRequired,
+  handleDeleteTool: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
   link: PropTypes.string,
   tags: PropTypes.array,
   title: PropTypes.string.isRequired

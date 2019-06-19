@@ -21,6 +21,13 @@ class HomeContainer extends Component {
 
     fetchTools()
   }
+
+  handleDeleteTool = id => {
+    const { fetchDeleteTools, fetchTools } = this.props
+
+    fetchDeleteTools(id)
+      .then(() => fetchTools())
+  }
   render() {
     const { tools } = this.props
     const infos = tools || []
@@ -46,9 +53,11 @@ class HomeContainer extends Component {
               <Card
                 description={info.description}
                 key={info.id}
+                id={info.id}
                 link={info.link}
                 tags={info.tags}
                 title={info.title}
+                handleDeleteTool={this.handleDeleteTool}
               />
             ))
           }
@@ -60,6 +69,7 @@ class HomeContainer extends Component {
 
 HomeContainer.proptypes = {
   fetchTools: PropTypes.func.isRequired,
+  fetchDeleteTools: PropTypes.func.isRequired,
   tools: PropTypes.array.isRequired
 }
 
