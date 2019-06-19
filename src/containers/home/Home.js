@@ -9,12 +9,15 @@ import Grid from '../../components/grid/Grid'
 import Row from '../../components/row/Row'
 import Col from '../../components/col/Col'
 import Card from '../../components/card/Card'
+import Modal from '../../components/modal/Modal'
 
 const StyledButton = styled.button`
   float: right;
 `
 
 class HomeContainer extends Component {
+
+  state = { showModal: false }
 
   componentDidMount() {
     const { fetchTools } = this.props
@@ -28,8 +31,13 @@ class HomeContainer extends Component {
     fetchDeleteTools(id)
       .then(() => fetchTools())
   }
+
+  toggleModal = () => {
+    this.setState(state => ({ showModal: !state.showModal }))
+  }
   render() {
     const { tools } = this.props
+    const { showModal } = this.state
     const infos = tools || []
 
     return (
@@ -44,9 +52,13 @@ class HomeContainer extends Component {
             <input />
           </Col>
           <Col xs={6} md={6} lg={6}>
-            <StyledButton>+ Add</StyledButton>
+            <StyledButton onClick={this.toggleModal}>+ Add</StyledButton>
           </Col>
         </Row>
+        {
+          showModal &&
+          <Modal />
+        }
         <Row>
           {
             infos.map((info) => (
