@@ -8,6 +8,8 @@ describe('<Card />', () => {
   beforeEach(() => {
     props = {
       description: 'Node Js is wonderful',
+      handleDeleteTool: () => {},
+      id: 1,
       link: 'https://nodejs.org/en/',
       tags: ['node', 'nodejs', 'javascript'],
       title: 'Node Js'
