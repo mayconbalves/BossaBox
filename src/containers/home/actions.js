@@ -2,7 +2,9 @@ import {
   GET_TOOLS_ERROR,
   GET_TOOLS_SUCCESS,
   DELETE_TOOLS_ERROR,
-  DELETE_TOOLS_SUCCESS
+  DELETE_TOOLS_SUCCESS,
+  ADD_TOOLS_ERROR,
+  ADD_TOOLS_SUCCESS
 } from './types'
 
 import api from '../../api'
@@ -49,4 +51,37 @@ export const fetchDeleteTools = id => dispatch => {
     .then(resp => resp.json())
     .then(response => dispatch(fetchDeleteToolsSuccess(response)))
     .catch(error => dispatch(fetchDeleteToolsError(error)))
+}
+
+const fetchAddToolsSuccess = data => {
+  console.log(data)
+  return {
+    type: DELETE_TOOLS_SUCCESS,
+    payload: data
+  }
+}
+
+const fetchAddToolsError = error => {
+  return {
+    type: DELETE_TOOLS_ERROR,
+    payload: error
+  }
+}
+
+export const fetchAddTools = () => dispatch => {
+  const body = {
+    title: 'hotel',
+    link: 'https://github.com/typicode/hotel',
+    description: 'Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.',
+    tags:['node', 'organizing', 'webapps', 'domain', 'developer', 'https', 'proxy']
+  }
+
+  fetch(api.TOOLS, {
+    ContentType: 'application/json',
+    method: 'POST',
+    body
+  })
+    .then(resp => resp.json())
+    .then(response => dispatch(fetchAddToolsSuccess(response)))
+    .catch(error => dispatch(fetchAddToolsError(error)))
 }
