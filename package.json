@@ -68,7 +68,8 @@
     "testEnvironment": "node",
     "collectCoverageFrom": [
       "src/*.js",
-      "src/**/*.js"
+      "src/**/*.js",
+      "!src/store/store.js"
     ],
     "coverageThreshold": {
       "global": {
