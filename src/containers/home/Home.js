@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import * as toolsActions from './actions'
 import styled from 'styled-components'
 
-import Grid from '../../components/grid/Grid'
-import Row from '../../components/row/Row'
-import Col from '../../components/col/Col'
-import Card from '../../components/card/Card'
-import Modal from '../../components/modal/Modal'
+import Grid from 'components/grid/Grid'
+import Row from 'components/row/Row'
+import Col from 'components/col/Col'
+import Card from 'components/card/Card'
+import Modal from 'components/modal/Modal'
 
 const StyledButton = styled.button`
   float: right;
