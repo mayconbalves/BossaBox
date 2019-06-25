@@ -26,17 +26,16 @@ class HomeContainer extends Component {
   }
 
   handleDeleteTool = id => {
-    const { fetchDeleteTools, fetchTools } = this.props
+    const { fetchDeleteTools } = this.props
 
     fetchDeleteTools(id)
-      .then(() => fetchTools())
   }
 
   toggleModal = () => {
     this.setState(state => ({ showModal: !state.showModal }))
   }
   render() {
-    const { tools } = this.props
+    const { tools, fetchAddTools } = this.props
     const { showModal } = this.state
     const infos = tools || []
 
@@ -57,7 +56,7 @@ class HomeContainer extends Component {
         </Row>
         {
           showModal &&
-          <Modal />
+          <Modal fetchAddTools={fetchAddTools} />
         }
         <Row>
           {
@@ -67,7 +66,7 @@ class HomeContainer extends Component {
                 key={info.id}
                 id={info.id}
                 link={info.link}
-                tags={info.tags}
+                tags={info.tagsArray}
                 title={info.title}
                 handleDeleteTool={this.handleDeleteTool}
               />
@@ -82,6 +81,7 @@ class HomeContainer extends Component {
 HomeContainer.proptypes = {
   fetchTools: PropTypes.func.isRequired,
   fetchDeleteTools: PropTypes.func.isRequired,
+  fetchAddTools: PropTypes.func.isRequired,
   tools: PropTypes.array.isRequired
 }
 
