@@ -18,7 +18,7 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
     <CardBody>
       <Row>
         <Col>
-          {title}
+          <a href={link}>{title}</a>
         </Col>
         <Col>
           <button onClick={() => handleDeleteTool(id)}>
