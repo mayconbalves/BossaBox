@@ -1,36 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
+import { ModalBody, ModalContent, InputWrapper } from './styled'
 import Row from 'components/row/Row'
 import Col from 'components/col/Col'
-
-const ModalBody = styled.div`
-  background: #fff;
-  border: 1px solid red;
-`
-
-const ModalContent = styled.div`
-  margin: 10px;
-  border: 1px solid #000;
-`
-
-const InputWrapper = styled.div`
-  position: relative;
-  width: 100%;
-
-  label {
-    position: absolute;
-    left: 20px;
-    top: -10px;
-  }
-
-  input, textarea {
-    width: 90%;
-    margin: 20px;
-    padding: 10px;
-  }
-`
 
 class Modal extends Component {
   state = { title: '', link: '', description: '', tags: [] }
