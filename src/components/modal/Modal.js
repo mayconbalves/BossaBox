@@ -21,6 +21,8 @@ const InputWrapper = styled.div`
 
   label {
     position: absolute;
+    left: 20px;
+    top: -10px;
   }
 
   input, textarea {
