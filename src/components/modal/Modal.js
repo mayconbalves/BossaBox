@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { ModalBody, ModalContent, InputWrapper } from './styled'
+import { ModalBody, ModalContent, InputWrapper, StyledButton } from './styled'
 import Row from 'components/row/Row'
 import Col from 'components/col/Col'
 
@@ -17,7 +17,7 @@ class Modal extends Component {
   }
 
   handleSubmit = () => {
-    const { fetchAddTools } = this.props
+    const { fetchAddTools, toggleModal } = this.props
     const { title, link, description, tags } = this.state
 
     const tagsArray = []
@@ -31,13 +31,17 @@ class Modal extends Component {
     }
 
     fetchAddTools(params)
+    toggleModal()
   }
   render() {
     const { title, link, description, tags } = this.state
+
     return (
       <ModalBody>
         <ModalContent>
-        <h4>+ Add new tool</h4>
+          <Row>
+            <h5>+ Add new tool</h5>
+          </Row>
           <Row>
             <Col xs={12} md={12} lg={12}>
               <InputWrapper>
@@ -78,7 +82,7 @@ class Modal extends Component {
                   onChange={this.handleChange}
                   required
                 />
-               </InputWrapper>
+              </InputWrapper>
             </Col>
           </Row>
           <Row>
@@ -94,7 +98,9 @@ class Modal extends Component {
               </InputWrapper>
             </Col>
           </Row>
-          <button onClick={this.handleSubmit}>Add Tools</button>
+          <Row>
+            <StyledButton onClick={this.handleSubmit}>Add Tools</StyledButton>
+          </Row>
         </ModalContent>
       </ModalBody>
     )
@@ -102,7 +108,8 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  fetchAddTools: PropTypes.func.isRequired
+  fetchAddTools: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired
 }
 
 export default Modal
