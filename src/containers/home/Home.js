@@ -56,7 +56,7 @@ class HomeContainer extends Component {
         </Row>
         {
           showModal &&
-          <Modal fetchAddTools={fetchAddTools} />
+          <Modal fetchAddTools={fetchAddTools} toggleModal={this.toggleModal} />
         }
         <Row>
           {
