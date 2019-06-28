@@ -14,8 +14,8 @@ describe('<Modal />', () => {
   it('render component', () => {
     const component = mount(<Modal {...props} />)
 
-    expect(component.find('h4')).toHaveLength(1)
-    expect(component.find('div')).toHaveLength(14)
+    expect(component.find('h5')).toHaveLength(1)
+    expect(component.find('div')).toHaveLength(16)
     expect(component.find('input')).toHaveLength(3)
     expect(component.find('textarea')).toHaveLength(1)
   })
