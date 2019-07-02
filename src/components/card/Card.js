@@ -12,18 +12,29 @@ const CardBody = styled.div`
   margin: 15px auto;
 `
 
+const StyledButton = styled.button`
+  float: right;
+  color: #365DF0;
+  width: 122px;
+  height: 23px;
+  font-size: 18px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+`
+
 const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
   const hashTags = tags || []
   return (
     <CardBody>
       <Row>
-        <Col>
+        <Col xs={6} md={8} lg={8}>
           <a href={link}>{title}</a>
         </Col>
-        <Col>
-          <button onClick={() => handleDeleteTool(id)}>
+        <Col xs={6} md={4} lg={4}>
+          <StyledButton onClick={() => handleDeleteTool(id)}>
             x remove
-          </button>
+          </StyledButton>
         </Col>
       </Row>
       <Row>
@@ -35,7 +46,7 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
         {
           hashTags.map(tag => (
             <Col key={tag}>
-              {tag}
+              #{tag}
             </Col>
           ))
         }
