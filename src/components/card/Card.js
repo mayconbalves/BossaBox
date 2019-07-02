@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Row from '../row/Row'
 import Col from '../col/Col'
+import Alert from '../alert/Alert'
 
 const CardBody = styled.div`
   width: 100%;
@@ -24,15 +25,26 @@ const StyledButton = styled.button`
 `
 
 const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
+  const [showAlert, setAlert] = useState(false)
   const hashTags = tags || []
+
   return (
     <CardBody>
+      {
+        showAlert &&
+        <Alert
+          handleDeleteTool={handleDeleteTool}
+          setAlert={setAlert}
+          id={id}
+          tool={title}
+        />
+      }
       <Row>
         <Col xs={6} md={8} lg={8}>
           <a href={link}>{title}</a>
         </Col>
         <Col xs={6} md={4} lg={4}>
-          <StyledButton onClick={() => handleDeleteTool(id)}>
+          <StyledButton onClick={() => setAlert(true)}>
             x remove
           </StyledButton>
         </Col>
