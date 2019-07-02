@@ -22,7 +22,7 @@ export const ModalContent = styled.div`
   background-color: white;
   width: 70%;
   max-width: 640px;
-  height: 75%;
+  height: 55%;
   margin: auto;
   padding: 10px;
   border: 3px solid black;
@@ -34,13 +34,12 @@ export const InputWrapper = styled.div`
 
   label {
     position: absolute;
-    left: 20px;
     top: -10px;
   }
 
   input, textarea {
-    width: 90%;
-    margin: 20px;
+    width: 95%;
+    margin: 20px auto;
     padding: 10px;
     border: 2px solid;
   }
