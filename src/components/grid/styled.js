@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  max-width: 1360px;
+  width: 60%;
   padding-right: 15px;
   padding-left: 15px;
   margin: 0 auto;
@@ -13,5 +13,10 @@ export const Container = styled.div`
   }
   &:after {
     clear: both;
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+    margin: 0 10px;
   }
 `
