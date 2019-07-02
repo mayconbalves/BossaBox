@@ -13,6 +13,34 @@ import Modal from 'components/modal/Modal'
 
 const StyledButton = styled.button`
   float: right;
+  color: #fff;
+  width: 174px;
+  height: 50px;
+  background: #365DF0;
+
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
+`
+
+const InputWrapper = styled.div`
+  width: 100%;
+
+  input {
+    width: 95%;
+    padding: 10px;
+    border: 2px solid;
+  }
+`
+
+const InputRadio = styled.div`
+  input {
+    margin: 0 10px;
+  }
 `
 
 class HomeContainer extends Component {
@@ -44,13 +72,20 @@ class HomeContainer extends Component {
         <h1>VUTTR</h1>
         <p>Very Useful Tools to Remember</p>
         <Row>
-          <Col xs={3} md={3} lg={3}>
-            <input />
+          <Col xs={12} md={12} lg={4}>
+            <InputWrapper>
+              <input
+                placeholder='search'
+              />
+            </InputWrapper>
           </Col>
-          <Col xs={3} md={3} lg={3}>
-            <input />
+          <Col xs={12} md={12} lg={4}>
+            <InputRadio>
+              <input type='checkbox' />
+              <label>search in tags only</label>
+            </InputRadio>
           </Col>
-          <Col xs={6} md={6} lg={6}>
+          <Col xs={12} md={12} lg={4}>
             <StyledButton onClick={this.toggleModal}>+ Add</StyledButton>
           </Col>
         </Row>
@@ -61,15 +96,16 @@ class HomeContainer extends Component {
         <Row>
           {
             infos.map((info) => (
+            <Col xs={12} md={12} lg={12} key={info.id}>
               <Card
                 description={info.description}
-                key={info.id}
                 id={info.id}
                 link={info.link}
                 tags={info.tagsArray}
                 title={info.title}
                 handleDeleteTool={this.handleDeleteTool}
               />
+            </Col>
             ))
           }
         </Row>
