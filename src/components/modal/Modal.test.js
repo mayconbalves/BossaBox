@@ -7,7 +7,8 @@ describe('<Modal />', () => {
 
   beforeEach(() => {
     props = {
-      fetchAddTools: () => {}
+      fetchAddTools: () => {},
+      toggleModal: () => {}
     }
   })
 
