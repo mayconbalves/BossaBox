@@ -11,7 +11,7 @@ const AlertBody = styled.div`
   top: 0;
   left: 0;
   overflow: auto;
-  padding-top: 80px;
+  padding-top: 20%;
   display: block;
 
   h5 {
@@ -35,6 +35,7 @@ const StyledButton = styled.button`
   width: 174px;
   height: 50px;
   background: #365DF0;
+  float: right;
 `
 
 const Alert = (props) => {

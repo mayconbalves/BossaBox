@@ -10,7 +10,7 @@ export const ModalBody = styled.div`
   top: 0;
   left: 0;
   overflow: auto;
-  padding-top: 80px;
+  padding-top: 5%;
   display: block;
 
   h5 {
@@ -22,7 +22,7 @@ export const ModalContent = styled.div`
   background-color: white;
   width: 70%;
   max-width: 640px;
-  height: 55%;
+  height: 75%;
   margin: auto;
   padding: 10px;
   border: 3px solid black;
