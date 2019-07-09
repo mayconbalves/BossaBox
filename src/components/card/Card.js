@@ -1,28 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { CardBody, StyledButton } from './styled'
 
 import Row from '../row/Row'
 import Col from '../col/Col'
 import Alert from '../alert/Alert'
-
-const CardBody = styled.div`
-  width: 100%;
-  height: 100px;
-  border: 2px solid black;
-  margin: 15px auto;
-`
-
-const StyledButton = styled.button`
-  float: right;
-  color: #365DF0;
-  width: 122px;
-  height: 23px;
-  font-size: 18px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-`
 
 const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
   const [showAlert, setAlert] = useState(false)
