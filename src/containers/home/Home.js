@@ -96,16 +96,16 @@ class HomeContainer extends Component {
         <Row>
           {
             infos.map((info) => (
-            <Col xs={12} md={12} lg={12} key={info.id}>
-              <Card
-                description={info.description}
-                id={info.id}
-                link={info.link}
-                tags={info.tagsArray}
-                title={info.title}
-                handleDeleteTool={this.handleDeleteTool}
-              />
-            </Col>
+              <Col xs={12} md={12} lg={12} key={info.id}>
+                <Card
+                  description={info.description}
+                  id={info.id}
+                  link={info.link}
+                  tags={info.tagsArray}
+                  title={info.title}
+                  handleDeleteTool={this.handleDeleteTool}
+                />
+              </Col>
             ))
           }
         </Row>
