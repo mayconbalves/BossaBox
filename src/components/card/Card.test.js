@@ -19,7 +19,7 @@ describe('<Card />', () => {
   it('render component', () => {
     const component = shallow(<Card {...props} />)
 
-    expect(component.find('Card__CardBody')).toHaveLength(1)
+    expect(component.find('styled__CardBody')).toHaveLength(1)
     expect(component.find('Row')).toHaveLength(3)
     expect(component.find('Col')).toHaveLength(6)
   })
