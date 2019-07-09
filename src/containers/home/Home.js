@@ -3,45 +3,13 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as toolsActions from './actions'
-import styled from 'styled-components'
 
 import Grid from 'components/grid/Grid'
 import Row from 'components/row/Row'
 import Col from 'components/col/Col'
 import Card from 'components/card/Card'
 import Modal from 'components/modal/Modal'
-
-const StyledButton = styled.button`
-  float: right;
-  color: #fff;
-  width: 174px;
-  height: 50px;
-  background: #365DF0;
-
-  @media only screen and (min-width: 768px) {
-    width: 100%;
-  }
-
-  @media(max-width: 768px) {
-    width: 100%;
-  }
-`
-
-const InputWrapper = styled.div`
-  width: 100%;
-
-  input {
-    width: 95%;
-    padding: 10px;
-    border: 2px solid;
-  }
-`
-
-const InputRadio = styled.div`
-  input {
-    margin: 0 10px;
-  }
-`
+import { StyledButton, InputWrapper, InputRadio } from './styled'
 
 class HomeContainer extends Component {
 
