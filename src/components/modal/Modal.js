@@ -8,7 +8,7 @@ import Col from 'components/col/Col'
 class Modal extends Component {
   state = { title: '', link: '', description: '', tags: [] }
 
-  handleChange = e => {
+  handleChange = event => {
     const target = event.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name

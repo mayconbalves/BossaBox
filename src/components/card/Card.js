@@ -40,9 +40,9 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
         {
           hashTags.map(tag => {
             const splitTag = tag.split(' ')
-            return splitTag.map(hashtag => (
-              <Col key={hashtag}>
-                #{hashtag}
+            return splitTag.map(tags => (
+              <Col key={tags}>
+                #{tags}
               </Col>
             ))
           })
