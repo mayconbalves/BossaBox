@@ -30,7 +30,19 @@ module.exports = {
           },
         ],
       },
-    ]
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.gif$/,
+        loader: 'url-loader'
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        loader: 'file-loader'
+      }
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
