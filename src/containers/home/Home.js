@@ -38,12 +38,18 @@ class HomeContainer extends Component {
   }
 
   handleKeyPress = event => {
-    const { fetchSearchTools } = this.props
+    const { fetchSearchTools, fetchSearchToolsByTag } = this.props
     const { value } = this.state
+    let inputTag = document.getElementById('search-by-tag')
     if(event.key === 'Enter') {
-      fetchSearchTools(value)
+      if(inputTag.checked) {
+        fetchSearchToolsByTag(value)
+      } else {
+        fetchSearchTools(value)
+      }
     }
   }
+
   render() {
     const { tools, fetchAddTools } = this.props
     const { showModal, value } = this.state
@@ -66,7 +72,11 @@ class HomeContainer extends Component {
           </Col>
           <Col xs={12} md={12} lg={4}>
             <InputRadio>
-              <input type='checkbox' />
+              <input
+                id='search-by-tag'
+                type='checkbox'
+                onKeyPress={this.handleKeyPress}
+              />
               <label>search in tags only</label>
             </InputRadio>
           </Col>
@@ -104,6 +114,7 @@ HomeContainer.proptypes = {
   fetchTools: PropTypes.func.isRequired,
   fetchDeleteTools: PropTypes.func.isRequired,
   fetchAddTools: PropTypes.func.isRequired,
+  fetchSearchToolsByTag: PropTypes.func.isRequired,
   tools: PropTypes.array.isRequired
 }
 
