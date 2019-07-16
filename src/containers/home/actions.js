@@ -30,6 +30,27 @@ export const fetchTools = () => dispatch => {
     .catch(error => dispatch(fetchToolsError(error)))
 }
 
+const searchToolsSuccess = data => {
+  return {
+    type: GET_TOOLS_SUCCESS,
+    payload: data
+  }
+}
+
+const searchToolsError = error => {
+  return {
+    type: GET_TOOLS_ERROR,
+    payload: error
+  }
+}
+
+export const fetchSearchTools = tool => dispatch => {
+  fetch(`${api.TOOLS}?q=${tool}`)
+    .then(resp => resp.json())
+    .then(response => dispatch(searchToolsSuccess(response)))
+    .catch(error => dispatch(searchToolsError(error)))
+}
+
 const fetchDeleteToolsSuccess = data => {
   return {
     type: DELETE_TOOLS_SUCCESS,
