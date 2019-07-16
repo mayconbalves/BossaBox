@@ -13,7 +13,7 @@ import { StyledButton, InputWrapper, InputRadio } from './styled'
 
 class HomeContainer extends Component {
 
-  state = { showModal: false }
+  state = { showModal: false, value: '' }
 
   componentDidMount() {
     const { fetchTools } = this.props
@@ -30,9 +30,23 @@ class HomeContainer extends Component {
   toggleModal = () => {
     this.setState(state => ({ showModal: !state.showModal }))
   }
+
+  handleChange = event => {
+    event.preventDefault()
+
+    this.setState({ value: event.target.value })
+  }
+
+  handleKeyPress = event => {
+    const { fetchSearchTools } = this.props
+    const { value } = this.state
+    if(event.key === 'Enter') {
+      fetchSearchTools(value)
+    }
+  }
   render() {
     const { tools, fetchAddTools } = this.props
-    const { showModal } = this.state
+    const { showModal, value } = this.state
     const infos = tools || []
 
     return (
@@ -43,7 +57,10 @@ class HomeContainer extends Component {
           <Col xs={12} md={12} lg={4}>
             <InputWrapper>
               <input
+                onKeyPress={this.handleKeyPress}
                 placeholder='search'
+                onChange={this.handleChange}
+                value={value}
               />
             </InputWrapper>
           </Col>
@@ -83,6 +100,7 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.proptypes = {
+  fetchSearchTools: PropTypes.func.isRequired,
   fetchTools: PropTypes.func.isRequired,
   fetchDeleteTools: PropTypes.func.isRequired,
   fetchAddTools: PropTypes.func.isRequired,

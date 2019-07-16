@@ -1,3 +1,4 @@
+import Search from '../../assets/Search.png'
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
@@ -23,6 +24,9 @@ export const InputWrapper = styled.div`
     width: 95%;
     padding: 10px;
     border: 2px solid;
+    background-image: url(${Search});
+    background-repeat: no-repeat;
+    background-position: right;
   }
 `
 
