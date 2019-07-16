@@ -51,6 +51,27 @@ export const fetchSearchTools = tool => dispatch => {
     .catch(error => dispatch(searchToolsError(error)))
 }
 
+const searchToolsByTagSuccess = data => {
+  return {
+    type: GET_TOOLS_SUCCESS,
+    payload: data
+  }
+}
+
+const searchToolsByTagError = error => {
+  return {
+    type: GET_TOOLS_ERROR,
+    payload: error
+  }
+}
+
+export const fetchSearchToolsByTag = tool => dispatch => {
+  fetch(`${api.TOOLS}?tags_like=${tool}`)
+    .then(resp => resp.json())
+    .then(response => dispatch(searchToolsByTagSuccess(response)))
+    .catch(error => dispatch(searchToolsByTagError(error)))
+}
+
 const fetchDeleteToolsSuccess = data => {
   return {
     type: DELETE_TOOLS_SUCCESS,
