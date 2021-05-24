@@ -18,7 +18,7 @@ enter backend folder and running
 `npx json-server db.json`
 
 after running frontend with
-`yarn start
+`yarn start`
 
 ### Running tests
 `yarn test`
