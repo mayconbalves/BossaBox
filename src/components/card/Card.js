@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { CardBody, StyledButton } from './styled'
+import * as S from './styled'
 
 import Row from '../row/Row'
 import Col from '../col/Col'
@@ -11,7 +11,7 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
   const hashTags = tags || []
 
   return (
-    <CardBody>
+    <S.Container>
       {
         showAlert &&
         <Alert
@@ -26,9 +26,9 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
           <a href={link}>{title}</a>
         </Col>
         <Col xs={6} md={4} lg={4}>
-          <StyledButton onClick={() => setAlert(true)}>
+          <S.Button onClick={() => setAlert(true)}>
             x remove
-          </StyledButton>
+          </S.Button>
         </Col>
       </Row>
       <Row>
@@ -48,7 +48,7 @@ const Card = ({ description, handleDeleteTool, id, link, tags, title }) => {
           })
         }
       </Row>
-    </CardBody>
+    </S.Container>
   )
 }
 

@@ -40,7 +40,9 @@ class HomeContainer extends Component {
   handleKeyPress = event => {
     const { fetchSearchTools, fetchSearchToolsByTag } = this.props
     const { value } = this.state
+
     let inputTag = document.getElementById('search-by-tag')
+
     if(event.key === 'Enter') {
       if(inputTag.checked) {
         fetchSearchToolsByTag(value)
