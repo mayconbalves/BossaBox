@@ -11,10 +11,6 @@ export const AlertBody = styled.div`
   overflow: auto;
   padding-top: 20%;
   display: block;
-
-  h5 {
-    margin-left: 15px;
-  }
 `
 
 export const AlertContent = styled.div`
@@ -27,7 +23,7 @@ export const AlertContent = styled.div`
   border: 3px solid black;
 `
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   color: #fff;
   margin-right: 15px;
   width: 174px;

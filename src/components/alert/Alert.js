@@ -1,20 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AlertBody, AlertContent, StyledButton } from './styled'
+import * as S from './styled'
 
-const Alert = (props) => {
-  const { handleDeleteTool, setAlert, id, tool } = props
-  return (
-    <AlertBody>
-      <AlertContent>
-        <h4>x Remove tool</h4>
-        <p>Are you sure wnat to remove {tool} ?</p>
-        <StyledButton onClick={() => setAlert(false)}>Cancel</StyledButton>
-        <StyledButton onClick={() => handleDeleteTool(id)}>Yes, remove</StyledButton>
-      </AlertContent>
-    </AlertBody>
-  )
-}
+const Alert = ({ handleDeleteTool, setAlert, id, tool }) => (
+  <S.AlertBody>
+    <S.AlertContent>
+      <h4>x Remove tool</h4>
+      <p>Are you sure wnat to remove {tool} ?</p>
+      <S.Button onClick={() => setAlert(false)}>Cancel</S.Button>
+      <S.Button onClick={() => handleDeleteTool(id)}>Yes, remove</S.Button>
+    </S.AlertContent>
+  </S.AlertBody>
+)
 
 Alert.propTypes = {
   handleDeleteTool: PropTypes.func.isRequired,
